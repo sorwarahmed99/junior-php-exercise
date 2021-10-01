@@ -3,7 +3,8 @@
 Setup guide:
 
 1. Install composer
-2. Run php artisan key:generate
-3. npm install
-4. php artisan migrate
-5. php artisan serve
+2. setup .env with database
+3. Run php artisan key:generate
+4. npm install
+5. php artisan migrate
+6. php artisan serve
