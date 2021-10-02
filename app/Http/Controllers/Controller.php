@@ -17,7 +17,7 @@ class Controller extends BaseController
         return $convertedTime;
     }
 
-    public function percentagePrint(int $number)
+    public function percentagePrint($number)
     {
         $arr = array();
         $hCounter = 0;
@@ -35,9 +35,6 @@ class Controller extends BaseController
                 $tCounter += 1;
             }
         }
-
-        // $arr[0] = ($hCounter / $number) * 100;
-        // $arr[1] = ($tCounter / $number) * 100;
 
         return array(($hCounter / $number) * 100, ($tCounter / $number) * 100);
     }

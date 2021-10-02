@@ -9,16 +9,15 @@
           $(".times").hide( "slow" );
           $("#hideUnixTime").hide("slow");
           $("#showUnixTime").show("slow");
-          });
-      });
+        });
 
-      $(function(){
+
+
         $("#showEmails").click(function(){
           $(".emails").show("slow");
         });
-      });
 
-      $(function(){
+
         $("#showFlips").click(function(){
           $(".flips").show("slow");
         });
@@ -75,6 +74,10 @@
       $(".flip").click(function(event){
         event.preventDefault();
 
+
+          $(".coinResult").show("slow");
+
+
         let number = $("input[name=number]").val();
         let _token   = $('meta[name="csrf-token"]').attr('content');
 
@@ -85,11 +88,11 @@
             number,
             _token
           },
-          success:function(data){
-            if(data) {
-              $('.head').append(data.head);
-              $('.tail').append(data.tail);
-              $("#FlipForm")[0].reset();
+          success:function(response){
+              if (response) {
+                $('.head').text(response.head);
+                $('.tail').text(response.tail);
+                $("#FlipForm")[0].reset();
             }
           },
          });
