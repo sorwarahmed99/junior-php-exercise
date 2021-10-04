@@ -14,8 +14,35 @@ class FlipCoinController extends Controller
      */
     public function index()
     {
-        //
+        $coins = FlipCoin::all();
+        return response()->json([
+            'coins' => $coins,
+        ]);
     }
+
+    public function flip(Request $request)
+    {
+        $number_of_time = $request->number;
+        $percentage = Controller::percentagePrint($number_of_time);
+
+        $heads = $percentage[0];
+        $tails = $percentage[1];
+
+        $flips = new FlipCoin();
+        $flips->number_of_flip = $number_of_time;
+        $flips->head = $heads;
+        $flips->tail = $tails;
+        $flips->save();
+
+        $response = array(
+            'head' => $heads,
+            'tail' => $tails,
+        );
+
+        return response()->json($response);
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

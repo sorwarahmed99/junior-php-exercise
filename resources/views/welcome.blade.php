@@ -17,7 +17,7 @@
                             <div class="rounded-md shadow-sm -space-y-px">
                               <div>
                                   <label for="unix-timestamp" class="sr-only">Unix Timestamp</label>
-                                  <input id="unix-timestamp" name="time" type="text" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Enter a UNIX timestamp ">
+                                  <input id="unix-timestamp" name="time" type="number" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Enter a UNIX timestamp ">
                               </div>
                             </div>
                             <div>
@@ -53,31 +53,7 @@
                                             </th>
                                           </tr>
                                         </thead>
-                                        <tbody class="bg-white divide-y divide-gray-200">
-
-                                            @php
-                                                $count = 1;
-                                            @endphp
-                                            @foreach ($timestamps as $time)
-                                                <tr>
-                                                    <td class="px-5 py-3 whitespace-nowrap">
-                                                        <div class="text-sm text-gray-900">{{ $count }}</div>
-                                                    </td>
-                                                    <td class="px-5 py-3 whitespace-nowrap">
-                                                        <div class="text-sm text-gray-900">
-                                                            {{$time->unix_time}}
-                                                        </div>
-                                                    </td>
-                                                    <td class="px-5 py-3 whitespace-nowrap">
-                                                        <div class="text-sm font-medium text-gray-900">
-                                                            {{$time->converted_time}}
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                @php
-                                                    $count++;
-                                                @endphp
-                                            @endforeach
+                                        <tbody id="unixTable" class="bg-white divide-y divide-gray-200">
                                         </tbody>
                                       </table>
                                     </div>
@@ -134,30 +110,7 @@
                                         </th>
                                       </tr>
                                     </thead>
-                                    <tbody class="bg-white divide-y divide-gray-200">
-                                        @php
-                                            $count = 1;
-                                        @endphp
-                                        @foreach ($emails as $email)
-                                            <tr>
-                                                <td class="px-5 py-3 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-900">{{ $count }}</div>
-                                                </td>
-                                                <td class="px-5 py-3 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-900">
-                                                        {{$email->input_email}}
-                                                    </div>
-                                                </td>
-                                                <td class="px-5 py-3 whitespace-nowrap">
-                                                    <div class="text-sm font-medium text-gray-900">
-                                                        {{$email->is_valid}}
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            @php
-                                                $count++;
-                                            @endphp
-                                        @endforeach
+                                    <tbody id="emailsTable" class="bg-white divide-y divide-gray-200">
                                     </tbody>
                                   </table>
                                 </div>
@@ -218,35 +171,8 @@
                                         </th>
                                       </tr>
                                     </thead>
-                                    <tbody class="bg-white divide-y divide-gray-200">
-                                        @php
-                                            $count = 1;
-                                        @endphp
-                                        @foreach ($flips as $flip)
-                                            <tr>
-                                                <td class="px-5 py-3 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-900">{{ $count }}</div>
-                                                </td>
-                                                <td class="px-5 py-3 whitespace-nowrap">
-                                                    <div class="text-sm font-medium text-gray-900">
-                                                        {{$flip->number_of_flip}}
-                                                    </div>
-                                                </td>
-                                                <td class="px-5 py-3 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-900">
-                                                        {{$flip->head}}
-                                                    </div>
-                                                </td>
-                                                <td class="px-5 py-3 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-900">
-                                                        {{$flip->tail}}
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            @php
-                                                $count++;
-                                            @endphp
-                                        @endforeach
+                                    <tbody id="coinsTable" class="bg-white divide-y divide-gray-200">
+
                                     </tbody>
                                   </table>
                                 </div>

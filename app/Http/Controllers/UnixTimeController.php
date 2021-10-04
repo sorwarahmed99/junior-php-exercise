@@ -12,9 +12,26 @@ class UnixTimeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        //
+        $timestamps = UnixTime::all();
+        return response()->json([
+            'timestamps' => $timestamps,
+        ]);
+    }
+
+    public function convertToTimestamp(Request $request)
+    {
+        $unix = $request->time;
+        $convert = Controller::unixTime($unix);
+
+        $unix_time = new UnixTime();
+        $unix_time->unix_time = $unix;
+        $unix_time->converted_time = $convert;
+        $unix_time->save();
+
+        return response()->json($convert);
     }
 
     /**

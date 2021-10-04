@@ -12,9 +12,26 @@ class ValdateEmailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        //
+        $emails = ValdateEmail::all();
+        return response()->json([
+            'emails' => $emails,
+        ]);
+    }
+
+    public function emailValiation(Request $request)
+    {
+        $email = $request->email;
+        $validate = Controller::validateEmail($email);
+
+        $validation = new ValdateEmail();
+        $validation->input_email = $email;
+        $validation->is_valid = $validate;
+        $validation->save();
+
+        return response()->json($validate);
     }
 
     /**
