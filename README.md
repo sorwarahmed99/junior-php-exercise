@@ -2,7 +2,7 @@
 
 Setup guide:
 
-1. Clone master branch
+1. Clone
 2. Install/update composer
 3. setup .env file with database
 4. Run php artisan key:generate
