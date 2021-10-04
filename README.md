@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # junior-php-exercise
 
 Setup guide:
