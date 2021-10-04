@@ -15,7 +15,7 @@ class ValdateEmailController extends Controller
 
     public function index()
     {
-        $emails = ValdateEmail::all();
+        $emails = ValdateEmail::orderBy('created_at', 'desc')->get();
         return response()->json([
             'emails' => $emails,
         ]);

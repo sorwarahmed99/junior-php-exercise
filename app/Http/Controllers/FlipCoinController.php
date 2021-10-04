@@ -14,7 +14,7 @@ class FlipCoinController extends Controller
      */
     public function index()
     {
-        $coins = FlipCoin::all();
+        $coins = FlipCoin::orderBy('created_at', 'desc')->get();
         return response()->json([
             'coins' => $coins,
         ]);

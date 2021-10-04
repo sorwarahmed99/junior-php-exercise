@@ -32,10 +32,11 @@ function fetchUnixTimes() {
         dataType: "json",
         success: function (response) {
             $("#unixTable").html("");
+            var count = 1;
             $.each(response.timestamps, function (key, item) {
                 $('#unixTable').append('<tr>\
                         <td class="px-5 py-3 whitespace-nowrap">\
-                            <div class="text-sm text-gray-900">'+ item.id + '</div>\
+                            <div class="text-sm text-gray-900">'+ count + '</div>\
                         </td>\
                         <td class="px-5 py-3 whitespace-nowrap">\
                             <div class="text-sm text-gray-900"> '+ item.unix_time + ' </div>\
@@ -45,6 +46,7 @@ function fetchUnixTimes() {
                         </td>\
                     </tr>'
                 );
+                count++;
             });
         }
     });
@@ -57,11 +59,11 @@ function fetchEmails() {
         dataType: "json",
         success: function (response) {
             $("#emailsTable").html("");
-
+            var count = 1;
             $.each(response.emails, function (key, item) {
                 $('#emailsTable').append('<tr>\
                         <td class="px-5 py-3 whitespace-nowrap">\
-                            <div class="text-sm text-gray-900">'+ item.id + '</div>\
+                            <div class="text-sm text-gray-900">'+ count + '</div>\
                         </td>\
                         <td class="px-5 py-3 whitespace-nowrap">\
                             <div class="text-sm text-gray-900"> '+ item.input_email + ' </div>\
@@ -71,6 +73,7 @@ function fetchEmails() {
                         </td>\
                     </tr>'
                 );
+                count++;
             });
         }
     });
@@ -84,11 +87,11 @@ function fetchCoins() {
         dataType: "json",
         success: function (response) {
             $("#coinsTable").html("");
-
+            var count = 1;
             $.each(response.coins, function (key, item) {
                 $('#coinsTable').append('<tr>\
                         <td class="px-5 py-3 whitespace-nowrap">\
-                            <div class="text-sm text-gray-900">'+ item.id + '</div>\
+                            <div class="text-sm text-gray-900">'+ count + '</div>\
                         </td>\
                         <td class="px-5 py-3 whitespace-nowrap">\
                             <div class="text-sm text-gray-900"> '+ item.number_of_flip + ' </div>\
@@ -101,6 +104,7 @@ function fetchCoins() {
                         </td>\
                     </tr>'
                 );
+                count++;
             });
         }
     });

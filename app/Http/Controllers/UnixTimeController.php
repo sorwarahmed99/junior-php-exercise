@@ -15,7 +15,7 @@ class UnixTimeController extends Controller
 
     public function index()
     {
-        $timestamps = UnixTime::all();
+        $timestamps = UnixTime::orderBy('created_at', 'desc')->get();
         return response()->json([
             'timestamps' => $timestamps,
         ]);
