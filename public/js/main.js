@@ -178,6 +178,7 @@ $(".flip").click(function(event){
                 $('.tail').text(response.tail);
                 $("#FlipForm")[0].reset();
             }
+            fetchCoins();
         },
     });
 });

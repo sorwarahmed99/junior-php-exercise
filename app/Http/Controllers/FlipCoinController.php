@@ -25,8 +25,8 @@ class FlipCoinController extends Controller
         $number_of_time = $request->number;
         $percentage = Controller::percentagePrint($number_of_time);
 
-        $heads = $percentage[0];
-        $tails = $percentage[1];
+        $heads = round($percentage[0]);
+        $tails = round($percentage[1]);
 
         $flips = new FlipCoin();
         $flips->number_of_flip = $number_of_time;
